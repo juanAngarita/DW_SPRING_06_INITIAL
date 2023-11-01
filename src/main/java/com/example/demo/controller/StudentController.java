@@ -52,15 +52,14 @@ public class StudentController {
     }
 
     // http://localhost:8090/student/login?correo=prueba@postman.com
-    @GetMapping("/login")
-    public ResponseEntity<Student> loginEstudiante(@RequestParam("correo") String correo) {
+    @PostMapping("/login")
+    public ResponseEntity<Student> loginEstudiante(@RequestBody Student student) {
 
-        System.out.println(correo);
-        Student student = studentService.SearchByCorreo(correo);
-        if (student == null) {
-            return new ResponseEntity<Student>(student, HttpStatus.NOT_FOUND);
+        Student studentDB = studentService.SearchByCorreo(student.getCorreo());
+        if (studentDB == null) {
+            return new ResponseEntity<Student>(studentDB, HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<Student>(student, HttpStatus.OK);
+        return new ResponseEntity<Student>(studentDB, HttpStatus.OK);
     }
 
     // http://localhost:8090/student/find/1

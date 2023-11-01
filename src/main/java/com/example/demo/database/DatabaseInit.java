@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.example.demo.database;
 
 import java.util.Random;
 
@@ -8,6 +8,10 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Controller;
 
+import com.example.demo.model.Course;
+import com.example.demo.model.HomeWork;
+import com.example.demo.model.Student;
+import com.example.demo.model.Teacher;
 import com.example.demo.repository.CourseRepository;
 import com.example.demo.repository.HomeWorkRepository;
 import com.example.demo.repository.StudentRepository;
